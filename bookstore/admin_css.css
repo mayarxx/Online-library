@@ -1,0 +1,504 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    transition: all 0.2s linear;
+}
+
+*::selection {
+    background-color: rgb(214, 180, 136);
+    color: black;
+}
+
+*::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(214, 180, 136);
+}
+
+html {
+    font-size: 62.5%;
+    overflow: scroll;
+}
+
+body {
+    background-color: #aa8d6f;
+}
+
+section {
+    padding: 30px 20px;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: black;
+    font-size: 30px;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0.2s;
+    }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #E5D3B3;
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+}
+ 
+.header .flex {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header .flex .logo {
+    font-size: 30px;
+    color: #aa8d6f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header .flex .logo span {
+    color: rgb(124, 72, 47);
+    font-weight: 700;
+}
+
+.btn,
+.option-btn,
+.delete-btn,
+.white-btn {
+    width: 50%;
+    height: 46px;
+    display: block;
+    margin: 24px auto;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ceba98e3;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.btn,
+.white-btn {
+    background-color: wheat;
+}
+
+.btn:hover,
+.option-btn:hover,
+.delete-btn:hover {
+    background-color: #a77a5d;
+}
+
+.white-btn:hover{
+    background-color: #5e402d;
+    color: black;
+}
+
+.message {
+    position: sticky;
+    background-size: auto;
+    top: 0;
+    margin: 0 auto;
+    max-width: 50%;
+    background-color: beige;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+    gap: 1rem;
+}
+
+.message span {
+    font-size: 2rem;
+    color: black;
+}
+
+.message i {
+    cursor: pointer;
+    font-size: 2.6rem;
+    color: black;
+}
+
+.header .flex .navbar a {
+    text-decoration: none;
+    font-size: 23px;
+    margin: 0 1rem;
+    color: rgb(124, 72, 47);
+}
+
+.header .flex .navbar a:hover {
+    color: #aa8d6f;
+}
+
+.header .flex .icons div {
+    margin-left: 1.5rem;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+}
+
+.header .flex .icons div:hover {
+    color: #725d47;
+}
+
+.header .flex .account-box {
+    position: absolute;
+    top: 120%;
+    right: 2rem;
+    width: 30rem;
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+    border-radius: 0.5rem;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #a58e75;
+    background-color: #E5D3B3;
+    display: none;
+    animation: fadeIn 0.2s linear;
+}
+
+.header .flex .account-box.active {
+    display: inline-block;
+}
+
+.header .flex .account-box p {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.header .flex .account-box p span {
+    color: #725d47;
+}
+
+.header .flex .account-box .delete-btn {
+    margin-top: 0;
+}
+
+#menu-btn {
+    display: none;
+}
+
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width:768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .flex .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background-color: #E5D3B3;
+        border-top: 2px solid rgba(114, 76, 56, 0.726);
+        border-bottom: 2px solid rgba(114, 76, 56, 0.726);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    }
+
+    .header .flex .navbar a {
+        margin: 2rem;
+        display: block;
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+.dashboard .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+
+}
+
+.dashboard .box-container .box{
+    border-radius: 0.5rem;
+    padding: 30px;
+    background-color: #E5D3B3;
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+    border: 2px solid rgba(114, 76, 56, 0.726);
+}
+
+.dashboard .box-container .box h3{
+    align-items: center;
+    font-size: 25px;
+    color: black;
+}
+
+.dashboard .box-container .box p{
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: #E5D3B3;
+    color: #725d47;
+    font-size: 25px;
+    border: 2px solid rgba(114, 76, 56, 0.726);
+    border-radius: 0.5rem;
+}
+
+.add-products form{
+    background-color: #e0cdac;
+    border-radius: 0.5rem;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+    border: 2px solid rgba(114, 76, 56, 0.726);
+    max-width: 50rem;
+    margin: 0 auto;   
+}
+
+.add-products form h3{
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    margin-bottom: 15px;   
+}
+
+.add-products form label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0.6rem 0;
+}
+
+.add-products form .box {
+    display: flex;
+    justify-content: center;
+    margin: 6px auto;
+    width: 70%;
+    min-height: 3em;
+    padding: 1.2rem 1.4rem;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    color: black;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+}
+
+.show-products .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+
+}
+
+.show-products .box-container .box{
+    text-align: center;
+    padding: 30px;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+    background-color: #e0cdac;
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+}
+
+.show-products .box-container .box img{
+    height: 30rem;
+}
+
+.show-products .box-container .box .name{
+    padding: 15px 0;
+    font-size: 30px;
+    color: black; 
+}
+
+.show-products .box-container .box .price{
+    padding: 15px 0;
+    font-size: 2.5rem;
+    color: red;
+}
+
+.edit-product-form{
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    width: 100%;
+}
+
+.edit-product-form form{
+    width: 50rem;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: #a58e75;
+}
+
+.edit-product-form form img{
+    height: 25rem;
+    margin-bottom: 10px;
+}
+
+.edit-product-form form .box{
+    margin: 1rem 0;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+    border-radius: 0.5rem;
+    background-color: #e0cdac;
+    font-size: 1.8rem;
+    color: black;
+    width: 100%;
+}
+
+.orders .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.orders .box-container .box{
+    background-color: #dac8ab;
+    padding: 20px;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+    border-radius: 0.5rem;
+}
+
+.orders .box-container .box p{
+   padding-bottom: 15px; 
+   font-size: 20px;
+   color: black;
+}
+
+.orders .box-container .box p span{
+    color: #704e2a;
+}
+
+.orders .box-container .box form{
+    text-align: center;
+}
+
+.orders .box-container .box form select{
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    background-color: #aa8d6f;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+    padding: 20px 25px;
+    font-size: 17px;
+    color: black;
+}
+
+.users .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.users .box-container .box{
+    background-color: #dac8ab;
+    padding: 20px;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.users .box-container .box p{
+    padding-bottom: 1.5rem;
+    font-size: 20px;
+    color: #c0a781;
+}
+
+.users .box-container .box p span{
+    color: #704e2a;
+}
+
+.users .box-container .box .delete-btn{
+    margin-top: 0;
+}
+
+.messages .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.messages .box-container .box{
+    background-color: #dac8ab;
+    padding: 20px;
+    border: 1px solid rgba(95, 62, 44, 0.726);
+    box-shadow: 0 5px 7.5px rgb(92, 56, 40);
+    border-radius: 0.5rem;
+}
+
+.messages .box-container .box p{
+    padding-bottom: 1.5rem;
+    font-size: 20px;
+    color: #c5ae89;
+    line-height: 1.5;
+}
+
+.messages .box-container .box p span{
+    color: #704e2a;
+}
+
+.messages .box-container .box .delete-btn{
+    margin-top: 0;
+}
